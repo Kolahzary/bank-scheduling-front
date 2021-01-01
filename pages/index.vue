@@ -1,70 +1,58 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">bank-scheduling-front</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <label for="name">
+      Name:
+      <input v-model="name" type="text" />
+    </label>
+    <label for="role">
+      Role:
+      <select v-model="role">
+        <option value="server">Server</option>
+        <option value="employee">Employee</option>
+        <option value="customer">Customer</option>
+      </select>
+    </label>
+    <button @click="start">Start</button>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { UserRoleType } from '~/interfaces'
+import { SocketAccessor } from '~/utils/socket-accessor'
+import { StoreAccessor } from '~/utils/store-accessor'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data: () => {
+    return {
+      name: 'user1',
+      role: 'customer' as UserRoleType,
+    }
+  },
+
+  methods: {
+    start() {
+      StoreAccessor.ClientStore.getUpdates()
+      StoreAccessor.ServerStore.getUpdates()
+
+      SocketAccessor.Instance.once('/started', (message) => {
+        this.$router.push(`/${this.role}/${message.id}`)
+      })
+      StoreAccessor.StartStore.Start({
+        name: this.name,
+        role: this.role,
+      })
+    },
+  },
+})
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
+<style scoped>
+input {
+  border: 1px black solid;
 }
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+button {
+  padding: 5px;
+  background: lightgreen;
 }
 </style>
