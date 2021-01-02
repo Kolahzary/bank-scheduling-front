@@ -36,12 +36,13 @@
               <span class="text-gray-100 font-semibold text-xl">{{ ticket.waitingCustomers}}</span>
             </div>
           </div>
-          <!-- Turn button -->
-          <div class="flex justify-center items-center mt-12">
+          <!-- Turn -->
+          <div class="flex justify-center items-center mt-12" v-if="turn">
             <div
-              class="w-1/3 bg-green-600 rounded-xl px-3 py-1 cursor-pointer flex justify-center items-center"
+              class="w-full bg-green-600 rounded-lg px-3 py-1 cursor-pointer flex justify-between items-center"
             >
-              <span class="text-gray-100 text-lg font-semibold">Turn</span>
+              <span class="text-gray-100 text-lg font-semibold">it's your turn!</span>
+              <span class="text-gray-100 text-lg font-semibold">go to employee : {{ turn.employeeName }}</span>
             </div>
           </div>
         </div>
