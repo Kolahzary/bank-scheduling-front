@@ -47,18 +47,6 @@
         </div>
       </div>
     </div>
-
-    <div class="ml-12">
-      <div class="mt-20 text-white">Logged in as {{ name }} (customer #{{ id }})</div>
-      <div>
-        <div>Ticket:</div>
-        <div>{{ ticket }}</div>
-      </div>
-      <div>
-        <div>Turn:</div>
-        <div>{{ turn }}</div>
-      </div>
-    </div>
   </div>
 </template>
 
