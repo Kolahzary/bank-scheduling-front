@@ -2,13 +2,17 @@
   <div class="min-h-screen bg-gray-800">
     <div class="w-9/12 mx-auto">
       <!-- Title -->
-      <div class="w-full h-20 bg-gray-700 flex justify-between items-center px-20">
+      <div
+        class="w-full h-20 bg-gray-700 flex justify-between items-center px-20"
+      >
         <div>
           <span class="text-gray-500 font-bold text-xl">Logged in as :</span>
           <span class="text-gray-100 font-bold text-xl ml-2">{{ name }}</span>
         </div>
         <div>
-          <span class="text-gray-500 font-bold text-xl">Your customer_id :</span>
+          <span class="text-gray-500 font-bold text-xl"
+            >Your customer_id :</span
+          >
           <span class="text-gray-100 font-bold text-xl ml-2">{{ id }}</span>
         </div>
       </div>
@@ -18,31 +22,51 @@
         <div class="w-3/4 border-gray-600 border-2 px-10 py-6 rounded-lg mt-6">
           <div class="w-full flex justify-between">
             <div>
-              <span class="text-gray-500 font-semibold text-xl mr-3">activeEmployees:</span>
-              <span class="text-gray-100 font-semibold text-xl">{{ ticket.activeEmployees}}</span>
+              <span class="text-gray-500 font-semibold text-xl mr-3"
+                >Active Employees:</span
+              >
+              <span class="text-gray-100 font-semibold text-xl">{{
+                ticket.activeEmployees
+              }}</span>
             </div>
             <div>
-              <span class="text-gray-500 font-semibold text-xl mr-3">approximateWaitingTimer:</span>
-              <span class="text-gray-100 font-semibold text-xl">{{ ticket.approximateWaitingTimer}}</span>
+              <span class="text-gray-500 font-semibold text-xl mr-3"
+                >Approximate waiting minutes:</span
+              >
+              <span class="text-gray-100 font-semibold text-xl">{{
+                ticket.approximateWaitingMinutes
+              }}</span>
             </div>
           </div>
           <div class="w-full flex justify-between mt-10">
             <div>
-              <span class="text-gray-500 font-semibold text-xl mr-3">positionInQueue:</span>
-              <span class="text-gray-100 font-semibold text-xl">{{ ticket.positionInQueue}}</span>
+              <span class="text-gray-500 font-semibold text-xl mr-3"
+                >Position in queue:</span
+              >
+              <span class="text-gray-100 font-semibold text-xl">{{
+                ticket.positionInQueue
+              }}</span>
             </div>
             <div class>
-              <span class="text-gray-500 font-semibold text-xl mr-3">waitingCustomers:</span>
-              <span class="text-gray-100 font-semibold text-xl">{{ ticket.waitingCustomers}}</span>
+              <span class="text-gray-500 font-semibold text-xl mr-3"
+                >Waiting Customers:</span
+              >
+              <span class="text-gray-100 font-semibold text-xl">{{
+                ticket.waitingCustomers
+              }}</span>
             </div>
           </div>
           <!-- Turn -->
-          <div class="flex justify-center items-center mt-12" v-if="turn">
+          <div v-if="turn" class="flex justify-center items-center mt-12">
             <div
               class="w-full bg-green-600 rounded-lg px-3 py-1 cursor-pointer flex justify-between items-center"
             >
-              <span class="text-gray-100 text-lg font-semibold">it's your turn!</span>
-              <span class="text-gray-100 text-lg font-semibold">go to employee : {{ turn.employeeName }}</span>
+              <span class="text-gray-100 text-lg font-semibold"
+                >it's your turn!</span
+              >
+              <span class="text-gray-100 text-lg font-semibold"
+                >go to employee : {{ turn.employeeName }}</span
+              >
             </div>
           </div>
         </div>

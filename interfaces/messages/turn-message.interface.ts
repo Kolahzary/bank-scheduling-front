@@ -1,4 +1,4 @@
 export interface TurnMessage {
-  employeeId: number;
-  employeeName: string;
+  employeeId: number
+  employeeName: string
 }

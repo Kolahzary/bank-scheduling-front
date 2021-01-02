@@ -1,7 +1,7 @@
 export interface TicketMessage {
-  id: number;
-  positionInQueue: number;
-  waitingCustomers: number;
-  activeEmployees: number;
-  approximateWaitingTimer: number;
+  id: number
+  positionInQueue: number
+  waitingCustomers: number
+  activeEmployees: number
+  approximateWaitingMinutes: number
 }

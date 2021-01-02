@@ -1,9 +1,10 @@
-import { Customer } from "./customer.interface";
-import { Employee } from "./employee.interface";
+import { Customer } from './customer.interface'
+import { Employee } from './employee.interface'
 
 export interface UpdateMessage {
-  approximateNewCustomerWaitingTime: number;
-  
-  customers: Customer[];
-  employees: Employee[];
+  minutesPerCustomer: number
+  approximateWaitingMinutes: number
+
+  customers: Customer[]
+  employees: Employee[]
 }
