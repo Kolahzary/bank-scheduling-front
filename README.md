@@ -1,5 +1,9 @@
 # bank-scheduling-front
 
+This is a sample project written in 2 nights after work :)
+
+Check bank-scheduling-server repo for more info
+
 ## Build Setup
 
 ```bash
